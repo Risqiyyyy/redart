@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -21,8 +23,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function user()
     {
-        return view('user/data');
+        $user = DB::table('users')->get();
+        return view('user/data',['users' => $user]);
+    }
+
+    public function tambah()
+    {
+        return view('user/tambah');
+    }
+
+    public function hapus($id)
+    {
+        DB::table('users')->where('id',$id)->delete();
+        return redirect('/user')->with('errors', 'Delete Berhasil!');
     }
 }

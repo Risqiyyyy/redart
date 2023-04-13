@@ -42,6 +42,7 @@
                 <div class="mb-6 ">
                   <input
                   id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none transition focus:border-primary focus-visible:shadow-none"
+                  placeholder="Masukan Email"
                   />
                   @error('email')
                   <span class="invalid-feedback" role="alert">
@@ -53,6 +54,7 @@
                   <input
                   id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"
                   class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none transition focus:border-primary focus-visible:shadow-none"
+                  placeholder="Masukan Password"
                   />
                   @error('password')
                   <span class="invalid-feedback" role="alert">
@@ -66,7 +68,7 @@
                 </button>
                 </div>
               </form>
-              <p class="mb-6 text-base text-[#adadad]">Connect With</p>
+              <p class="mb-6 text-base text-[#adadad]">Login Menggunakan</p>
               <ul class="-mx-2 mb-12 flex justify-between">
                 <li class="w-full px-2">
                   <a
@@ -133,8 +135,8 @@
                 Forget Password?
               </a>
               <p class="text-base text-[#adadad]">
-                Not a member yet?
-                <a href="signup.html" class="text-primary hover:underline">
+                Belum Punya Akun?
+                <a href="{{route('register')}}" class="text-primary hover:underline">
                   Sign Up
                 </a>
               </p>
